@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul>
+	<li>这是第一项</li>
+	<div class="isShow">
+		<p>111</p>
+		<p>222</p>
+	</div>
+	<li>这是第二项</li>
+	<div class="isShow">
+		<p>111</p>
+		<p>222</p>
+	</div>
+	<li>这是第三项</li>
+	<div class="isShow">
+		<p>111</p>
+		<p>222</p>
+	</div>
+</ul>
+<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
+<script>
+$(function(){
+	var newArr = [1,1,1];   // 1表示show,0表示hide
+	$('ul').on('click','li',function(){
+		var index = $('li').index(this);  // 在ul里面的第几个li
+		if(parseInt(newArr[index])){
+			$(".isShow").eq(index).hide();
+			newArr[index] = 0;
+		}else{
+			$(".isShow").eq(index).show();
+			newArr[index] = 1;
+		}
+		localStorage.setItem('item',newArr);
+	})
+	if(localStorage.getItem('item')){
+		newArr = localStorage.getItem('item').split(',')
+		newArr.forEach(function(item,index){
+			if(parseInt(item)){
+				$(".isShow").eq(index).show();
+			}else{
+				$(".isShow").eq(index).hide();
+			}
+		});
+
+	}
+})
+
+
+</script>
+</body>
+</html>
