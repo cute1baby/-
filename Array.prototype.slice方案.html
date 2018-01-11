@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul>
+	<li>第一题</li>
+	<li>第二题</li>
+	<li>第三题</li>
+	<li>第四题</li>
+	<li>第五题</li>
+</ul>
+<script>
+var lis = document.getElementsByTagName('li');
+console.log(lis.length);
+var lisArr = Array.prototype.slice.call(lis,"");
+console.log(lisArr);	
+var newArr = lisArr.map((item,index)=>{
+	return index>3;   //返回布尔值
+})
+var newArr1 = lisArr.filter((item,index)=>{
+	return index>3;   //返回筛选的数组
+})
+console.log(newArr,newArr1);
+/*原理：
+Array.prototype.slice.call(arguments); == Array.prototype.slice.call(arguments,"");
+Array.prototype.slice的意思很明显是让数组的实例对象执行slice方法,而call的作用很明显，就是让arguments拥有执行该方法的能力。即arguments.slice()能够正常执行而不会报错。*/
+</script>
+</body>
+</html>
