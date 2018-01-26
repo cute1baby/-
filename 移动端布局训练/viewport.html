@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	#box{
+		width: 200px;
+		height: 200px;
+		background: red;
+	}
+</style>
+<body>
+<!-- 假设UI给一张设计图：宽度是320px,但是手机最小的都是375.要使320的设计图能占据全屏幕的宽度，需要做一个缩放。 -->
+<div id="box">
+	
+</div>
+<script>
+var targetW = 320;
+var width =screen.width;
+var scale = width/targetW;
+var metaNode = document.createElement('meta');
+metaNode.setAttribute('name','viewport');
+metaNode.setAttribute('content','initial-scale='+scale);
+document.body.appendChild(metaNode);
+</script>	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+(function(doc, win) {
+    var screenWidth = 0, size = 'M', root = doc.documentElement;
+    if (window.screen && screen.width) {
+        screenWidth = screen.width;
+        if (screenWidth > 1920) {
+            // 超大屏，例如iMac
+            size = 'L';
+        } else if (screenWidth < 480) {
+            // 小屏，如手机
+            size = 'S';
+        }
+    }
+    // 标记CSS
+    root.className = size;
+    // 标记JS
+    win.SIZE = size;        
+})(document, window);	
+// 使用这种方式就很容易的修改pc端和移动端的逻辑了
+if (window.SIZE == 'S') {
+  // 移动端的处理
+} else {
+  // 桌面端的处理
+}
+
+</script>
+</body>
+</html>
