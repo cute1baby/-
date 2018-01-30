@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<p>111</p>
+<p style="display:none;">222</p>
+<p>333</p>
+<p>444</p>
+<hr>
+<form action="" id="coo">
+	<input type="text" name="xiao" value="111">
+	<input type="text" name="da" value="222">
+	<input type="hidden" name="hei" style="display:none;" value="333">
+	<input type="submit" value="提交">
+</form>
+
+<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.js"></script>
+<script>
+var arr = ['aaa','bbb','ccc'];
+arr.forEach(function(value,index){  
+	//console.log(value);
+	arr[index] = '111';
+})
+console.log(arr);
+	console.log($("p").length);
+	$("p").eq(2).hide();
+var foo = function(value){
+	console.log('foo:'+value);
+}
+var bar = function(val){
+	console.log('bar:'+val);
+}
+var callbacks = $.Callbacks();
+callbacks.add(foo);
+callbacks.add(bar);
+console.log(callbacks);
+
+callbacks.fire( 'hello' );  //fire会调用在回调数组中的函数,所以会分别调用foo函数和bar函数。
+/*callbacks.fire( 'nihao' );*/
+</script>
+</body>
+</html>
