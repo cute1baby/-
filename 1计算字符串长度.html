@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+function culateStr(s){
+	if(!arguments.length || !s){
+		return null
+	}
+	if(''==s){
+		return 0;
+	}
+	var l = 0;
+	for(var i=0;i<s.length;i++){
+		if(s.charCodeAt(i)>255){
+			l+=2
+		}else{
+			l+=1
+		}
+	}
+	console.log(l)
+}
+culateStr('hello_李钟')
+</script>
+</body>
+</html>
