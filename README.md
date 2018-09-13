@@ -9,16 +9,46 @@ $("#table").bootstrapTable('destroy');
 ```
 
 ```
-数组和对象的浅拷贝和深拷贝：
+【js的方法】：实现数组和对象的浅拷贝和深拷贝：
 浅拷贝和深拷贝的区别：浅拷贝只能是修改基本数据类型之后不影响原数据，深拷贝是修改了引用类型不影响原数据。
 简单数组的浅拷贝 =>  Array.prototype.slice();
 对象数组的深拷贝 =>  [].concat(JSON.parse(JSON.stringify(paramsDef.QuestionTypeMappings))); 
 
 所谓”深拷贝”，就是能够实现真正意义上的数组和对象的拷贝.
 
+浅拷贝：Object.assign(target, ...sources)  针对第一层key修改有用，对象的对象属性值修改，原数据也会改变。
+深拷贝：  let obj3 = JSON.parse(JSON.stringify(target));  这样的对象的对象属性值改变也不会有什么影响。
+  let obj1 = { a: 0 , b: { c: 0}};
+  let obj2 = Object.assign({}, obj1);  浅拷贝
+  let obj3 = JSON.parse(JSON.stringify(obj1));  深拷贝
+  
+  
+  
+【jq的方法】:同时可以深拷贝和浅拷贝数组和对象。  
 $.extend( [deep ], target, object1 [, objectN ] )
 简单对象的浅拷贝 =>  deep为false时,浅拷贝
 多层嵌套对象的深拷贝 =>  deep为true时，深拷贝
+var arr = [{"key1":1,"key2":2},{"key3":3,"key4":4}];
+var obj = {
+    "key":{
+        "keydemo1":1,
+        "keydemo2":2,
+    },
+    "html":{
+        "html1":1,
+        "html2":2,
+    }
+}
+var arr1 = $.extend(true, {}, arr);
+arr[1].key3 = 100;
+console.log(arr1);
+
+var obj1 = $.extend(true, {} , obj);
+obj.html.html1 = 100;
+console.log(obj1);
+
+
+
 ```
 
 ```
