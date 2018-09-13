@@ -1,0 +1,11 @@
+1、解决pc端字体小于12px不生效的问题：
+```
+<span>看我的字体大小</span>
+css:
+span{
+  font-size:12px;
+  display:inline-block;
+  tranform:scale(0.5);
+}
+这样就能完成缩放：因为scale对应的是元素的宽高缩放，所以要设置成行内块元素才有宽高属性。
+```
