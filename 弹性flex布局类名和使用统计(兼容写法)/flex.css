@@ -1,4 +1,10 @@
-/*【flex布局类】,直接添加类名就能达到弹性布局的效果*/
+/*
+* @Author: Marte
+* @Date:   2018-10-19 09:15:35
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-10-19 09:15:52
+*/
+/*【flex布局类】*/
 
 .flex {  // 容器设置为弹性布局
     display: -webkit-box;
@@ -6,32 +12,32 @@
     display: -ms-flexbox;
     display: flex;
   }
-  
+
   .flex-v {        // 主轴变为纵向
     -webkit-box-orient: vertical;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  
+
   .flex-row-reverse{
     flex-direction: row-reverse;
   }
-  
+
   .flex-1 {     //自适应部分类名
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
   }
-  
+
   .flex-align-center {   // 次轴居中
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
   }
-  
+
   .flex-pack-center {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
@@ -44,7 +50,7 @@
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
     justify-content: flex-end;
-  }  
+  }
 
   /*兼容不支持 sapce-around 属性*/
   .flex-justify-between{         // 两端对齐
@@ -53,21 +59,21 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
-  
-  
+
+
   .flex-self-center{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-self: center;
   }
-  
+
   .flex-wrap{
     flex-wrap:wrap;
   }
-  
+
   /*【文字溢出隐藏显示省略号操作】*/
-  .text-overflow-ellipsis{    
+  .text-overflow-ellipsis{
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;   
+    white-space: nowrap;
   }
