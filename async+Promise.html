@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+<script>
+function doubleAfter2seconds(num) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(2 * num)
+        }, 2000);
+    } )
+}
+// async定义的函数是一个Promise对象，用来解决return类型的值。
+// 只有在函数定义中用到了async才能在函数体内部使用await
+async function testResult() {
+    let first = await doubleAfter2seconds(30);// 直到2s之后得到异步返回的值才会往下走，让异步的执行等同于同步的效果
+    console.log('第一个2s结束');
+    let second = await doubleAfter2seconds(50);
+    console.log('第二个2s结束');
+    let third = await doubleAfter2seconds(30);
+    console.log(first + second + third);
+}
+
+
+async function setStyle(){
+    // 最经典的链式操作，符合js普遍单线程的伎俩
+    const result = await new Promise((resolve,reject) => {
+        const num = Math.random() *4;
+        if(num < 2){
+            resolve(num);
+        }else {
+            reject(num);
+        }
+    })
+    .then((result) => console.log('result='+result))
+    .catch((err) => console.log('err='+err))
+}
+
+
+testResult()
+setStyle();
+
+
+</script>
+</body>
+</html>
