@@ -12,7 +12,19 @@ yarn global bin:全局安装包之后仍然在命令中找不到，需要输入�
 数据，我们看到的现象也就是只能看到请求一次。所以我们需要在list请求之前：
 $("#table").bootstrapTable('destroy'); 
 ```
-
+```
+【数组的方法】
+const questionToTalNum = QuestionTotalArr.reduce((accumulator, cur) => {
+      return accumulator + cur.Count;
+  }, 0)
+  
+const questionToTalNum = QuestionTotalArr.map((accumulator, index) => {
+      return {
+        key:0,
+        value: accumulator
+      }
+  })
+  
 ```
 【js的方法】：实现数组和对象的浅拷贝和深拷贝：
 浅拷贝和深拷贝的区别：浅拷贝只能是修改基本数据类型之后不影响原数据，深拷贝是修改了引用类型不影响原数据。
